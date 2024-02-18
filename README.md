@@ -23,14 +23,13 @@
   <ul>
     <li>React: Biblioteca JavaScript de código aberto para construir interfaces de usuário.</li>
     <li>TypeScript: Utilizado também no frontend para adicionar tipagem estática e aumentar a robustez do código.</li>
-    <li>Outras bibliotecas e ferramentas: Pode incluir bibliotecas como Axios para requisições HTTP, Material-UI para
-      componentes de interface, entre outras.</li>
   </ul>
 
-<h2 align="center"> Gif da Aplicação </h2>
+<h2 style="text-align: center;">Gif da Aplicação</h2>
 <p>O gif abaixo foi gerado pela própria aplicação durante a conversão de um vídeo para formato GIF.</p>
-<img src="/aplication.gif" alt="Gif da Aplicação">
-![](/aplication.gif)
+<div style="text-align: center;">
+  <img src="/aplication.gif" alt="Gif da Aplicação" style="width: 80%; max-width: 800px;">
+</div>
 
 <h2>Como Executar o Projeto</h2>
   <ol>
