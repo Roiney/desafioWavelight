@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         Int            @id @default(autoincrement())
+  name       String
+  email      String         @unique
+  password   String         @db.VarChar(255)
+  createdAt  DateTime?      @default(now()) @db.Timestamp(6)
+  updatedAt  DateTime?      @default(now()) @db.Timestamp(6)
+  canceledAt DateTime?      @db.Timestamp(6)
+  gifs       ConvertedGif[]
+}
+
+model ConvertedGif {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int      @map("user_id")
+  filePath  String
+  createdAt DateTime @default(now()) @db.Timestamp(6)
+}
