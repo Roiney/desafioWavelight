@@ -1,0 +1,26 @@
+# Base image
+FROM node:18-alpine
+
+# Create app directory
+WORKDIR /app
+
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+COPY package*.json ./
+COPY yarn.lock ./
+
+
+# Install app dependencies
+RUN yarn install
+
+
+# Bundle app source
+COPY . .
+
+# Creates a "dist" folder with the production build
+RUN yarn build
+
+# Expose port 3001
+EXPOSE 3001
+
+# Start the server using the production build
+CMD [ "node", "dist/main.js" ]
