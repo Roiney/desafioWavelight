@@ -7,23 +7,22 @@
 </p>
 <h2>Tecnologias Utilizadas</h2>
 
-  <h3>Backend (NestJS)</h3>
-  <ul>
-    <li>NestJS: Framework para construção de aplicativos eficientes e escaláveis em Node.js.</li>
-    <li>TypeScript: Superset de JavaScript que adiciona tipagem estática opcional ao código.</li>
-    <li>MySQL: Banco de dados relacional utilizado para armazenar dados relacionados aos usuários e aos vídeos
-      processados.</li>
-    <li>JWT (JSON Web Tokens): Mecanismo de autenticação utilizado para autenticar os usuários na aplicação.</li>
-    <li>FFmpeg: Biblioteca para manipulação de arquivos de áudio e vídeo, utilizado para converter os vídeos em GIFs.</li>
-    <li>Diretório para Simular um Bucket: Para simular um armazenamento de arquivos, foi utilizado um diretório na raiz
-      do backend para armazenar os arquivos de vídeo e os GIFs convertidos.</li>
-  </ul>
-
-  <h3>Frontend (ReactJS)</h3>
-  <ul>
-    <li>React: Biblioteca JavaScript de código aberto para construir interfaces de usuário.</li>
-    <li>TypeScript: Utilizado também no frontend para adicionar tipagem estática e aumentar a robustez do código.</li>
-  </ul>
+<h3>Backend (NestJS)</h3>
+<ul>
+  <li>NestJS: Framework para construção de aplicativos eficientes e escaláveis em Node.js.</li>
+  <li>TypeScript: Superset de JavaScript que adiciona tipagem estática opcional ao código.</li>
+  <li>MySQL: Banco de dados relacional utilizado para armazenar dados relacionados aos usuários e aos vídeos
+    processados.</li>
+  <li>JWT (JSON Web Tokens): Mecanismo de autenticação utilizado para autenticar os usuários na aplicação.</li>
+  <li>FFmpeg: Biblioteca para manipulação de arquivos de áudio e vídeo, utilizado para converter os vídeos em GIFs.</li>
+  <li>Diretório para Simular um Bucket: Para simular um armazenamento de arquivos, foi utilizado um diretório na raiz
+    do backend para armazenar os arquivos de vídeo e os GIFs convertidos.</li>
+</ul>
+<h3>Frontend (ReactJS)</h3>
+<ul>
+  <li>React: Biblioteca JavaScript de código aberto para construir interfaces de usuário.</li>
+  <li>TypeScript: Utilizado também no frontend para adicionar tipagem estática e aumentar a robustez do código.</li>
+</ul>
 
 <h2 style="text-align: center;">Gif da Aplicação</h2>
 <p>O gif abaixo foi gerado pela própria aplicação durante a conversão de um vídeo para formato GIF.</p>
@@ -43,11 +42,12 @@
   <li><strong>Endpoint:</strong> /user</li>
   <li><strong>Método HTTP:</strong> POST</li>
   <li><strong>Corpo da Requisição:</strong>
-    <pre>{
+  <pre>{
   "name": "johnD@e10",
   "email": "example@example.com",
   "password": "12@#!10Aa"
-}</pre>
+  }</pre>
+</ul>
 
 <h3>Rota de Login de Usuários</h3>
 
@@ -57,11 +57,11 @@
   <li><strong>Endpoint:</strong> /auth/login</li>
   <li><strong>Método HTTP:</strong> POST</li>
   <li><strong>Corpo da Requisição:</strong>
-    <pre>{
+  <pre>{
   "email": "example@example.com",
   "password": "12@#!10Aa"
 }</pre>
-
+</ul>
 <h3>Rota de Envio de Vídeos para Conversão em GIF</h3>
 
 <p>Esta rota permite o envio de vídeos para serem convertidos em arquivos GIF. Ela é do tipo POST e utiliza o <code>multipart/form-data</code> com o boundary para receber os arquivos. A rota faz uso da biblioteca Multer para realizar o upload dos arquivos e implementa um decorator personalizado para garantir que apenas vídeos no formato MP4 sejam aceitos. Além disso, a rota possui um guard e utiliza a engenharia JWT para garantir a segurança e capturar o usuário que está realizando o envio do vídeo.</p>
@@ -74,7 +74,7 @@
   <li><strong>Endpoint:</strong> /converter/mp4</li>
   <li><strong>Método HTTP:</strong> POST</li>
   <li><strong>Corpo da Requisição:</strong> form-data com o arquivo de vídeo</li>
-
+</ul>
 <h3>Rota de Busca de Todos os GIFs de um Usuário</h3>
 
 <p>Esta rota permite que o frontend obtenha todos os GIFs de um usuário para serem exibidos na biblioteca de GIFs. Ela é do tipo GET e retorna uma lista paginada de GIFs. A rota possui autenticação JWT, que é utilizada para garantir uma resposta personalizada para o usuário autenticado e já implementa a funcionalidade de paginação.</p>
@@ -88,7 +88,7 @@
       <li><code>skip</code>  número de GIFs a serem ignorados no início da lista (padrão: 0)</li>
     </ul>
   </li>
-
+</ul>
 <h3>Rota para Fornecer o GIF para Download</h3>
 
 <p>Esta rota permite que o frontend faça o download de um GIF específico. Ela utiliza o módulo ServeStaticModule do Nest.js para fornecer o arquivo GIF estático ao frontend. A rota também possui validação JWT para garantir que apenas usuários autenticados possam baixar os GIFs.</p>
@@ -102,7 +102,7 @@
       <li><code>filename</code>: Nome do arquivo GIF (caminho informado pela rota anterior)</li>
     </ul>
   </li>
-
+</ul>
 <h2>Como Executar o Projeto com Docker</h2>
 <p>Para executar o projeto usando Docker, siga as instruções abaixo:</p>
 <ol>
