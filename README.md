@@ -60,7 +60,7 @@
     <pre>{
   "email": "example@example.com",
   "password": "12@#!10Aa"
-}
+}</pre>
 
 <h3>Rota de Envio de Vídeos para Conversão em GIF</h3>
 
