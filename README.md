@@ -134,6 +134,17 @@
   <li>Executar o comando Docker Compose: <code>docker compose -f "app/docker-compose.yml" up -d --build</code>.</li>
 </ol>
 
+<p>Após o levantamento, o Docker Compose verificará a saúde dos containers para as dependências exigidas:</p>
+<pre>
+Running 4/4
+ ✔ Network app_default       Created                                                                                                                                                                      0.2s 
+ ✔ Container db              Healthy                                                                                                                                                                     33.7s 
+ ✔ Container app_backend     Healthy                                                                                                                                                                     94.9s 
+ ✔ Container app-frontend-1  Started  
+</pre>
+
+<p>Após isso, pode-se acessar o link <a href="http://localhost:3000/">http://localhost:3000/</a> para o frontend e, para a documentação do Swagger do backend, acessar <a href="http://localhost:3001/docs">http://localhost:3001/docs</a>.</p>
+
 <h3>O que o Docker Compose faz:</h3>
 <ul>
   <li>Define e inicia os serviços necessários para executar a aplicação.</li>
