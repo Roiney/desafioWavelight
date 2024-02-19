@@ -7,12 +7,17 @@
 </p>
 <h2>Tecnologias Utilizadas</h2>
 
+<p>
+  As partes do projeto foram construídas em repositórios separados no GitHub e agrupadas posteriormente para melhor entendimento. Como resultado, o histórico de commits pode estar comprometido no entendimento da construção. Se necessário, você pode solicitar acesso aos repositórios originais para obter mais detalhes sobre o desenvolvimento.
+</p>
+
+<h3>Banco de Dados (MySQL)</h3>
+<p>A rastreabilidade é uma questão importante neste projeto, e o MySQL foi escolhido como banco de dados devido à sua robustez e capacidade de fornecer registros claros e rastreáveis das atividades dos usuários, bem como dos processos de conversão de vídeo para GIF. Além disso, o MySQL oferece uma estrutura relacional que facilita a organização e recuperação eficiente dos dados, tornando-o uma escolha ideal para um aplicativo como este.</p>
+
 <h3>Backend (NestJS)</h3>
 <ul>
   <li>NestJS: Framework para construção de aplicativos eficientes e escaláveis em Node.js.</li>
   <li>TypeScript: Superset de JavaScript que adiciona tipagem estática opcional ao código.</li>
-  <li>MySQL: Banco de dados relacional utilizado para armazenar dados relacionados aos usuários e aos vídeos
-    processados.</li>
   <li>JWT (JSON Web Tokens): Mecanismo de autenticação utilizado para autenticar os usuários na aplicação.</li>
   <li>FFmpeg: Biblioteca para manipulação de arquivos de áudio e vídeo, utilizado para converter os vídeos em GIFs.</li>
   <li>Diretório para Simular um Bucket: Para simular um armazenamento de arquivos, foi utilizado um diretório na raiz
@@ -103,6 +108,25 @@
     </ul>
   </li>
 </ul>
+
+<h2>Arquitetura do Frontend</h2>
+
+<p>Este projeto consiste em um frontend com 4 páginas que compõem uma aplicação para um desafio técnico.</p>
+
+<h2>Arquitetura do Frontend</h2>
+
+<p>Este projeto consiste em um frontend com 4 páginas que compõem uma aplicação para um desafio técnico.</p>
+
+<h2>Páginas</h2>
+<ul>
+    <li><strong>Página Home:</strong> Contém a descrição do desafio técnico.</li>
+    <li><strong>Página de Inscrição de Usuário:</strong> Possui 4 campos (nome, email, senha e confirmação de senha) e um botão de envio para cadastrar o usuário.</li>
+    <li><strong>Área de Login:</strong> Página onde os usuários podem inserir seu email e senha para acessar a aplicação.</li>
+    <li><strong>Biblioteca de Gifs:</strong> Esta página permite aos usuários enviar vídeos e acessar uma biblioteca de gifs.</li>
+</ul>
+
+<p>Entretanto, devido à limitação da tag `<img>` em carregar arquivos locais diretamente pelo HTML, é necessário implementar uma lógica de download para permitir o acesso aos gifs.</p>
+
 <h2>Como Executar o Projeto com Docker</h2>
 <p>Para executar o projeto usando Docker, siga as instruções abaixo:</p>
 <ol>
@@ -171,7 +195,7 @@ O container do frontend neste projeto é responsável por servir a interface de 
 
 Este container encapsula toda a lógica e recursos necessários para servir a interface de usuário da aplicação, garantindo que o ambiente seja replicável e consistente em diferentes ambientes de execução.
 
-<h2>Como Executar o Projeto localmente</h2>
+<h2>Como Executar o Projeto Localmente</h2>
   <ol>
     <li>Clonar o repositório: <code>git clone https://github.com/Roiney/desafioWavelight.git</code></li>
     <li>Instalar Dependências:
