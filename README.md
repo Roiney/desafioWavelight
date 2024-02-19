@@ -31,6 +31,78 @@
   <img src="/aplication.gif" alt="Gif da Aplicação" style="width: 80%; max-width: 800px;">
 </div>
 
+<h2>Arquitetura do Backend</h2>
+
+<p>O backend desta aplicação segue uma arquitetura padrão MVC (Model-View-Controller) dividida em módulos, seguindo os princípios e convenções do framework Nest.js.</p>
+
+<h3>Rota de Cadastro de Usuários</h3>
+
+<p>Esta rota permite o cadastro de novos usuários na aplicação. Ela é do tipo POST e recebe as informações de nome, email e senha para o cadastro dos mesmos. A rota possui um endpoint público, ou seja, não requer autenticação para acessá-la. Os dados enviados são validados pela biblioteca <code>class-validator</code>, garantindo que estejam de acordo com o padrão estabelecido e que não estejam vazios. Além disso, foi implementada uma validação de senha forte para garantir a segurança das contas de usuário.</p>
+
+<ul>
+  <li><strong>Endpoint:</strong> /user</li>
+  <li><strong>Método HTTP:</strong> POST</li>
+  <li><strong>Corpo da Requisição:</strong>
+    <pre>{
+  "name": "johnD@e10",
+  "email": "example@example.com",
+  "password": "12@#!10Aa"
+}</pre>
+
+<h3>Rota de Login de Usuários</h3>
+
+<p>Esta rota permite que os usuários façam login na aplicação. Ela recebe o email e a senha do usuário e retorna um token utilizado para validar as permissões do usuário no frontend. A rota é pública, permitindo que qualquer usuário acesse sem a necessidade de autenticação. No entanto, posteriormente será necessário adicionar proteção a essa rota através de um guard local. Assume-se que apenas os usuários que possuem um email cadastrado poderão acessar esta rota. O token gerado é assinado com JWT (JSON Web Token).</p>
+
+<ul>
+  <li><strong>Endpoint:</strong> /auth/login</li>
+  <li><strong>Método HTTP:</strong> POST</li>
+  <li><strong>Corpo da Requisição:</strong>
+    <pre>{
+  "email": "example@example.com",
+  "password": "12@#!10Aa"
+}
+
+<h3>Rota de Envio de Vídeos para Conversão em GIF</h3>
+
+<p>Esta rota permite o envio de vídeos para serem convertidos em arquivos GIF. Ela é do tipo POST e utiliza o <code>multipart/form-data</code> com o boundary para receber os arquivos. A rota faz uso da biblioteca Multer para realizar o upload dos arquivos e implementa um decorator personalizado para garantir que apenas vídeos no formato MP4 sejam aceitos. Além disso, a rota possui um guard e utiliza a engenharia JWT para garantir a segurança e capturar o usuário que está realizando o envio do vídeo.</p>
+
+<p>A lógica por trás da conversão é realizada através do FFmpeg. O FFmpeg é um projeto de software livre e de código aberto que consiste em uma série de bibliotecas e programas para manipular arquivos e streams de vídeo, áudio e outros arquivos de multimídia.</p>
+
+<p>Após a conversão, o sistema salva o arquivo convertido em um diretório específico do usuário, simulando um sistema de "bucket", e armazena o caminho do arquivo no banco de dados relacional para rastreamento e posterior acesso dos GIFs gerados.</p>
+
+<ul>
+  <li><strong>Endpoint:</strong> /converter/mp4</li>
+  <li><strong>Método HTTP:</strong> POST</li>
+  <li><strong>Corpo da Requisição:</strong> form-data com o arquivo de vídeo</li>
+
+<h3>Rota de Busca de Todos os GIFs de um Usuário</h3>
+
+<p>Esta rota permite que o frontend obtenha todos os GIFs de um usuário para serem exibidos na biblioteca de GIFs. Ela é do tipo GET e retorna uma lista paginada de GIFs. A rota possui autenticação JWT, que é utilizada para garantir uma resposta personalizada para o usuário autenticado e já implementa a funcionalidade de paginação.</p>
+
+<ul>
+  <li><strong>Endpoint:</strong> /server-gif</li>
+  <li><strong>Método HTTP:</strong> GET</li>
+  <li><strong>Parâmetros da Requisição:</strong>
+    <ul>
+      <li><code>take</code>  número de GIFs a serem retornados por página (padrão: 10)</li>
+      <li><code>skip</code>  número de GIFs a serem ignorados no início da lista (padrão: 0)</li>
+    </ul>
+  </li>
+
+<h3>Rota para Fornecer o GIF para Download</h3>
+
+<p>Esta rota permite que o frontend faça o download de um GIF específico. Ela utiliza o módulo ServeStaticModule do Nest.js para fornecer o arquivo GIF estático ao frontend. A rota também possui validação JWT para garantir que apenas usuários autenticados possam baixar os GIFs.</p>
+
+<ul>
+  <li><strong>Endpoint:</strong> /server-gif/:filename</li>
+  <li><strong>Método HTTP:</strong> GET</li>
+ 
+  <li><strong>Parâmetros da Query:</strong> 
+    <ul>
+      <li><code>filename</code>: Nome do arquivo GIF (caminho informado pela rota anterior)</li>
+    </ul>
+  </li>
+
 <h2>Como Executar o Projeto com Docker</h2>
 <p>Para executar o projeto usando Docker, siga as instruções abaixo:</p>
 <ol>
@@ -99,7 +171,7 @@ O container do frontend neste projeto é responsável por servir a interface de 
 
 Este container encapsula toda a lógica e recursos necessários para servir a interface de usuário da aplicação, garantindo que o ambiente seja replicável e consistente em diferentes ambientes de execução.
 
-<h2>Como Executar o Projeto</h2>
+<h2>Como Executar o Projeto localmente</h2>
   <ol>
     <li>Clonar o repositório: <code>git clone https://github.com/Roiney/desafioWavelight.git</code></li>
     <li>Instalar Dependências:
