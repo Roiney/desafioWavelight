@@ -8,7 +8,7 @@
 <h2>Tecnologias Utilizadas</h2>
 
 <p>
-  As partes do projeto foram construídas em repositórios separados no GitHub e agrupadas posteriormente para melhor entendimento. Como resultado, o histórico de commits pode estar comprometido no entendimento da construção. Se necessário, você pode solicitar acesso aos repositórios originais para obter mais detalhes sobre o desenvolvimento.
+  As partes do projeto foram construídas em repositórios separados no GitHub e agrupadas posteriormente para melhor entendimento. Como resultado, o histórico de commits pode estar comprometido dificultando o entendimento da construção. Se necessário, você pode solicitar acesso aos repositórios originais para obter mais detalhes sobre o desenvolvimento.
 </p>
 
 <h3>Banco de Dados (MySQL)</h3>
@@ -113,10 +113,6 @@
 
 <p>Este projeto consiste em um frontend com 4 páginas que compõem uma aplicação para um desafio técnico.</p>
 
-<h2>Arquitetura do Frontend</h2>
-
-<p>Este projeto consiste em um frontend com 4 páginas que compõem uma aplicação para um desafio técnico.</p>
-
 <h2>Páginas</h2>
 <ul>
     <li><strong>Página Home:</strong> Contém a descrição do desafio técnico.</li>
@@ -125,7 +121,7 @@
     <li><strong>Biblioteca de Gifs:</strong> Esta página permite aos usuários enviar vídeos e acessar uma biblioteca de gifs.</li>
 </ul>
 
-<p>Entretanto, devido à limitação da tag `<img>` em carregar arquivos locais diretamente pelo HTML, é necessário implementar uma lógica de download para permitir o acesso aos gifs.</p>
+<p>Entretanto, devido à limitação da tag <strong>img</strong> em carregar arquivos locais diretamente pelo HTML, é necessário implementar uma lógica de download para permitir o acesso aos gifs.</p>
 
 <h2>Como Executar o Projeto com Docker</h2>
 <p>Para executar o projeto usando Docker, siga as instruções abaixo:</p>
