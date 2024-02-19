@@ -20,7 +20,7 @@ services:
     ports:
       - 3001:3001
     working_dir: /app-backend
-    command: npm run dev
+    command: bash -c "yarn prisma db push && yarn start:dev"
     volumes:
       - ./backend/src:/app-backend/src
     depends_on:
@@ -47,6 +47,7 @@ services:
       - 3002:3306
     environment:
       - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=wavelight
     restart: "always"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"] # Deve aguardar o banco ficar operacional
